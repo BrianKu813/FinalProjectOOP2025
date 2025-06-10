@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<jpackage-state version="21.0.6" platform="macOS">
+  <app-version>1.0</app-version>
+  <main-launcher>OrderSystem</main-launcher>
+  <main-class>ordersystem.OrderSystem</main-class>
+  <signed>false</signed>
+  <app-store>false</app-store></jpackage-state>

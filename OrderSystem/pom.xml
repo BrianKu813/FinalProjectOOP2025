@@ -22,17 +22,35 @@
   </dependencies>
 
   <!-- 加入 plugin 讓你可以用 mvn exec:java 執行 -->
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>3.1.0</version>
-        <configuration>
-          <mainClass>ordersystem.OrderSystem</mainClass> <!-- 修改這裡為你主程式的全名 -->
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+<build>
+  <plugins>
+    <!-- 產生包含依賴的 jar -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <version>3.3.0</version>
+      <configuration>
+        <archive>
+          <manifest>
+            <mainClass>ordersystem.OrderSystem</mainClass>
+          </manifest>
+        </archive>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+      </configuration>
+      <executions>
+        <execution>
+          <id>make-assembly</id>
+          <phase>package</phase>
+          <goals>
+            <goal>single</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+</build>
+
 
 </project>
